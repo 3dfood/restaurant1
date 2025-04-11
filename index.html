@@ -1,14 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>USDZ AR Viewer</title>
-</head>
-<body style="text-align: center; padding-top: 50px;">
-  <h1>View in AR</h1>
-  <a rel="ar" href="https://storage.cloud.google.com/3dfood/TeaCup.usdz?authuser=1">
-    <img src="preview.jpg" alt="Tap to view in AR" width="300">
-  </a>
-  <p>Tap the image on iPhone/iPad to launch AR</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>3D Model AR Viewer</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: #f0f0f0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: column;
+      }
+      model-viewer {
+        width: 100%;
+        max-width: 600px;
+        height: 80vh;
+      }
+    </style>
+  </head>
+  <body>
+    <model-viewer
+      src="TeaCup.glb"
+      ios-src="TeaCup.usdz"
+      ar
+      ar-modes="scene-viewer quick-look webxr"
+      auto-rotate
+      camera-controls
+      alt="A 3D model">
+    </model-viewer>
+    <p>Tap on the model to view in AR</p>
+  </body>
 </html>
